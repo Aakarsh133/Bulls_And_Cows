@@ -1,0 +1,42 @@
+import random
+
+def bulls_and_cows(r):
+    while 1:
+        c, b, score= 0, 0, 10
+        i= input("Enter a 4 Digit Number: ")
+            
+        i1, r1= list(i), list(r)
+                                                                                               
+        if i== r:
+            print("You Guessed it Right!")
+            
+        else:
+            for e in range(0, 4):
+                if i1[e]== r1[e]:
+                    b += 1 
+                if i1[e] in r1 and i1[e] != r1[e]:
+                    c += 1
+
+        #print("Secret Code: ", r)
+        print("Guess: ", i)
+        print("Cows: ", c, "Bulls: ", b)
+
+        score -= 1
+        
+def code():
+    r=  str(random.randint(1,9))
+    
+    while True:
+        r2= str(random.randint(0, 9))
+        if r2 in r:
+            continue
+        else:
+            r += r2
+        if len(r)== 4:
+            break
+
+    return r
+
+
+bulls_and_cows(code())
+
